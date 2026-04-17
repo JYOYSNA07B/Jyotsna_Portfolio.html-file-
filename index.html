@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jyotsna B | Data Analyst & AI Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0A1628;
+    --blue: #1A4FC4;
+    --sky: #3B82F6;
+    --accent: #60A5FA;
+    --gold: #F59E0B;
+    --white: #FFFFFF;
+    --offwhite: #F0F4FF;
+    --gray: #94A3B8;
+    --card: #FFFFFF;
+    --border: #E2E8F0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--offwhite);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(10,22,40,0.97);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 60px; height: 64px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--white); font-size: 1.3rem; font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500; letter-spacing: 0.5px;
+    text-transform: uppercase; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--navy) 0%, #0F2554 50%, #1A3A7C 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding-top: 64px;
+  }
+
+  /* Grid lines background */
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(96,165,250,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(96,165,250,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Glowing orbs */
+  .orb {
+    position: absolute; border-radius: 50%;
+    filter: blur(80px); opacity: 0.25;
+    animation: float 8s ease-in-out infinite;
+  }
+  .orb1 { width: 500px; height: 500px; background: var(--blue); top: -100px; right: -100px; animation-delay: 0s; }
+  .orb2 { width: 350px; height: 350px; background: var(--accent); bottom: -80px; left: -80px; animation-delay: -4s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-30px); }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; max-width: 860px; padding: 40px 20px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(96,165,250,0.15); border: 1px solid rgba(96,165,250,0.3);
+    color: var(--accent); padding: 6px 18px; border-radius: 100px;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 1px;
+    text-transform: uppercase; margin-bottom: 28px;
+    animation: fadeInDown 0.8s ease both;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 900; color: var(--white); line-height: 1.05;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.9s ease 0.1s both;
+  }
+  .hero-name span { color: var(--accent); }
+
+  .hero-tagline {
+    font-size: 1.15rem; color: rgba(255,255,255,0.65);
+    font-weight: 300; line-height: 1.7; margin-bottom: 40px;
+    animation: fadeInUp 0.9s ease 0.2s both;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+    margin-bottom: 44px;
+    animation: fadeInUp 0.9s ease 0.3s both;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.8); padding: 8px 20px; border-radius: 100px;
+    font-size: 0.85rem; font-weight: 500;
+  }
+
+  .hero-btns {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    animation: fadeInUp 0.9s ease 0.4s both;
+  }
+  .btn-primary {
+    background: var(--blue); color: white;
+    padding: 14px 32px; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem; text-decoration: none;
+    transition: all 0.25s; border: none; cursor: pointer;
+    box-shadow: 0 4px 20px rgba(26,79,196,0.4);
+  }
+  .btn-primary:hover { background: var(--sky); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(26,79,196,0.5); }
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 14px 32px; border-radius: 8px;
+    font-weight: 600; font-size: 0.9rem; text-decoration: none;
+    border: 1.5px solid rgba(255,255,255,0.3); transition: all 0.25s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .hero-stats {
+    display: flex; justify-content: center; gap: 50px;
+    margin-top: 60px; padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    animation: fadeInUp 0.9s ease 0.5s both;
+  }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 900; color: var(--accent);
+  }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 60px; max-width: 1200px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 0.75rem; font-weight: 600; color: var(--blue);
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700;
+    color: var(--navy); margin-bottom: 16px; line-height: 1.2;
+  }
+  .section-line {
+    width: 60px; height: 4px; background: var(--blue);
+    border-radius: 4px; margin-bottom: 50px;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: white; max-width: 100%; padding: 90px 0; }
+  .about-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .about-text p { font-size: 1.05rem; color: #475569; line-height: 1.85; margin-bottom: 20px; }
+  .about-highlights { display: flex; flex-direction: column; gap: 18px; margin-top: 30px; }
+  .highlight-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 20px; background: var(--offwhite);
+    border-radius: 10px; border-left: 4px solid var(--blue);
+  }
+  .highlight-icon { font-size: 1.3rem; }
+  .highlight-text { font-size: 0.9rem; color: #334155; line-height: 1.5; }
+  .highlight-text strong { color: var(--navy); display: block; margin-bottom: 2px; }
+
+  .about-card {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A3A7C 100%);
+    border-radius: 20px; padding: 40px; color: white;
+    box-shadow: 0 20px 60px rgba(10,22,40,0.2);
+  }
+  .about-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem; margin-bottom: 24px; color: var(--accent);
+  }
+  .edu-item { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .edu-degree { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+  .edu-uni { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 6px; }
+  .edu-cgpa {
+    display: inline-block; background: rgba(96,165,250,0.2);
+    color: var(--accent); padding: 3px 12px; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 600;
+  }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--offwhite); max-width: 100%; padding: 90px 0; }
+  .skills-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .skill-card {
+    background: white; border-radius: 14px; padding: 28px;
+    border: 1px solid var(--border);
+    transition: all 0.3s; cursor: default;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .skill-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,79,196,0.12); border-color: var(--accent); }
+  .skill-card-icon { font-size: 2rem; margin-bottom: 14px; }
+  .skill-card-title { font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 14px; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .skill-tag {
+    background: var(--offwhite); color: var(--blue);
+    padding: 4px 12px; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 500; border: 1px solid rgba(26,79,196,0.15);
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: white; max-width: 100%; padding: 90px 0; }
+  .projects-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+  .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+  .project-card {
+    background: white; border: 1px solid var(--border);
+    border-radius: 16px; overflow: hidden;
+    transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(26,79,196,0.12); }
+  .project-header {
+    background: linear-gradient(135deg, var(--navy) 0%, #1A3A7C 100%);
+    padding: 24px 28px 20px;
+  }
+  .project-badge {
+    display: inline-block; background: rgba(96,165,250,0.25);
+    color: var(--accent); padding: 3px 12px; border-radius: 100px;
+    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  .project-title { font-family: 'Playfair Display', serif; font-size: 1.15rem; color: white; line-height: 1.4; font-weight: 700; }
+  .project-body { padding: 24px 28px; }
+  .project-desc { font-size: 0.88rem; color: #475569; line-height: 1.7; margin-bottom: 18px; }
+  .project-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .project-tool {
+    background: #EFF6FF; color: var(--blue);
+    padding: 4px 12px; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 600;
+  }
+  .project-highlight {
+    display: flex; align-items: center; gap: 8px;
+    background: #F0FDF4; border-radius: 8px; padding: 10px 14px;
+    font-size: 0.82rem; color: #166534; font-weight: 500;
+  }
+
+  /* ── CERTIFICATIONS ── */
+  #certifications { background: var(--offwhite); max-width: 100%; padding: 90px 0; }
+  .certs-inner { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+  .certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .cert-card {
+    background: white; border-radius: 14px; padding: 24px;
+    border: 1px solid var(--border); transition: all 0.3s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .cert-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(26,79,196,0.1); border-color: var(--sky); }
+  .cert-issuer {
+    font-size: 0.7rem; font-weight: 700; color: var(--blue);
+    text-transform: uppercase; letter-spacing: 1.5px;
+  }
+  .cert-name { font-weight: 600; font-size: 0.92rem; color: var(--navy); line-height: 1.4; }
+  .cert-date { font-size: 0.78rem; color: var(--gray); }
+  .cert-logo {
+    width: 36px; height: 36px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: white;
+    text-align: center; padding: 50px 40px;
+  }
+  .footer-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 700; color: var(--accent); margin-bottom: 12px;
+  }
+  .footer-links { display: flex; justify-content: center; gap: 30px; margin: 20px 0; flex-wrap: wrap; }
+  .footer-links a {
+    color: rgba(255,255,255,0.6); text-decoration: none;
+    font-size: 0.85rem; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--accent); }
+  .footer-copy { color: rgba(255,255,255,0.3); font-size: 0.8rem; margin-top: 16px; }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.7s ease; }
+  .revealed { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    section { padding: 60px 24px; }
+    .about-inner { grid-template-columns: 1fr; gap: 40px; padding: 0 24px; }
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .certs-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { gap: 30px; }
+    .skills-inner, .projects-inner, .certs-inner { padding: 0 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Jyotsna <span>B</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="hero-content">
+    <div class="hero-badge">📍 Coimbatore, Tamil Nadu</div>
+    <h1 class="hero-name">Jyotsna <span>B</span></h1>
+    <p class="hero-tagline">
+      MSc Artificial Intelligence Graduate · Published Researcher · Data Enthusiast<br/>
+      Transforming complex data into meaningful business insights
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">📊 Data Analyst</span>
+      <span class="hero-tag">📈 BI Analyst</span>
+      <span class="hero-tag">🤖 AI Product Analyst</span>
+      <span class="hero-tag">🔍 ML Researcher</span>
+    </div>
+    <div class="hero-btns">
+      <a href="mailto:jyotsnab5757@gmail.com" class="btn-primary">📧 Contact Me</a>
+      <a href="https://www.linkedin.com/in/jyotsna-b-586498373/" target="_blank" class="btn-outline">🔗 LinkedIn</a>
+      <a href="https://github.com/JYOYSNA07B" target="_blank" class="btn-outline">💻 GitHub</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Certifications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8.01</div>
+        <div class="stat-label">CGPA</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1</div>
+        <div class="stat-label">Publication</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div id="about" style="background:white;">
+<div class="about-inner">
+  <div class="about-text reveal">
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-title">About Me</h2>
+    <div class="section-line"></div>
+    <p>I'm <strong>Jyotsna B</strong>, an MSc Artificial Intelligence graduate from <strong>Bharathiar University</strong> (NAAC A++, NIRF Rank 46) with a strong passion for data-driven decision making and business intelligence.</p>
+    <p>With hands-on experience in machine learning, deep learning, and data visualization tools like Power BI and Tableau, I bridge the gap between complex AI/ML models and actionable business insights.</p>
+    <p>As a <strong>published researcher at ICAC-2026</strong>, I presented work on deep learning-based rainfall severity classification — achieving 98.37% accuracy using Stacked LSTM models.</p>
+    <div class="about-highlights">
+      <div class="highlight-item">
+        <div class="highlight-icon">🏆</div>
+        <div class="highlight-text"><strong>ICAC-2026 Published Researcher</strong>Presented at Bharathiar University International Conference, Jan 2026</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-text"><strong>Business Intelligence Certified</strong>Power BI, Tableau, Excel — certified and project-ready</div>
+      </div>
+      <div class="highlight-item">
+        <div class="highlight-icon">🎯</div>
+        <div class="highlight-text"><strong>Industry Simulations</strong>Completed job simulations with Tata, Deloitte & Accenture via Forage</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-card reveal">
+    <h3>🎓 Education</h3>
+    <div class="edu-item">
+      <div class="edu-degree">MSc Artificial Intelligence</div>
+      <div class="edu-uni">Bharathiar University, Coimbatore · 2024–2026</div>
+      <span class="edu-cgpa">CGPA: 8.012</span>
+    </div>
+    <div class="edu-item">
+      <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+      <div class="edu-uni">Nirmala College for Women · 2021–2024</div>
+    </div>
+    <div style="margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.1);">
+      <div style="color:rgba(255,255,255,0.5); font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;">Contact</div>
+      <div style="font-size:0.88rem; margin-bottom:8px;">📞 8825719516</div>
+      <div style="font-size:0.88rem; margin-bottom:8px;">✉️ jyotsnab5757@gmail.com</div>
+      <div style="font-size:0.88rem;">📍 Coimbatore, Tamil Nadu</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SKILLS -->
+<div id="skills" style="background:var(--offwhite);">
+<div class="skills-inner">
+  <div style="padding-top:90px;">
+  <div class="section-label reveal">What I Know</div>
+  <h2 class="section-title reveal">Skills & Expertise</h2>
+  <div class="section-line reveal"></div>
+  <div class="skills-grid">
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">📊</div>
+      <div class="skill-card-title">Data & Analytics</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Excel (Advanced)</span>
+        <span class="skill-tag">SQL (Basics)</span>
+        <span class="skill-tag">Data Visualization</span>
+        <span class="skill-tag">Reporting</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🤖</div>
+      <div class="skill-card-title">AI & Machine Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Deep Learning</span>
+        <span class="skill-tag">LSTM</span>
+        <span class="skill-tag">Random Forest</span>
+        <span class="skill-tag">Gradient Boosting</span>
+        <span class="skill-tag">Generative AI</span>
+        <span class="skill-tag">Python</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">💼</div>
+      <div class="skill-card-title">Business Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Requirements Gathering</span>
+        <span class="skill-tag">Project Coordination</span>
+        <span class="skill-tag">Agile</span>
+        <span class="skill-tag">Stakeholder Mgmt</span>
+        <span class="skill-tag">Business Analysis</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🔐</div>
+      <div class="skill-card-title">Security & Tech</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Cybersecurity</span>
+        <span class="skill-tag">IoT Systems</span>
+        <span class="skill-tag">Software Engineering</span>
+        <span class="skill-tag">Cloud Computing</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">🛠️</div>
+      <div class="skill-card-title">Tools & Platforms</div>
+      <div class="skill-tags">
+        <span class="skill-tag">GitHub</span>
+        <span class="skill-tag">MS Office</span>
+        <span class="skill-tag">Arduino IDE</span>
+        <span class="skill-tag">Blynk</span>
+        <span class="skill-tag">Android Studio</span>
+      </div>
+    </div>
+    <div class="skill-card reveal">
+      <div class="skill-card-icon">📝</div>
+      <div class="skill-card-title">Research & Communication</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Research Paper Writing</span>
+        <span class="skill-tag">Data Storytelling</span>
+        <span class="skill-tag">Presentation</span>
+        <span class="skill-tag">Documentation</span>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div style="padding-bottom:90px;"></div>
+</div>
+</div>
+
+<!-- PROJECTS -->
+<div id="projects" style="background:white;">
+<div class="projects-inner">
+  <div style="padding-top:90px;">
+  <div class="section-label reveal">What I've Built</div>
+  <h2 class="section-title reveal">Academic Projects</h2>
+  <div class="section-line reveal"></div>
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div class="project-badge">⭐ Published · ICAC-2026</div>
+        <div class="project-title">Deep Learning Based Classification of Rainfall Severity Using Rolling Features</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Developed a Stacked LSTM model on NASA POWER hourly data (2001–2025). Compared CNN, LSTM, ANN Ensemble models using lag features, SMOTE, and temporal sequence modeling.</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span>
+          <span class="project-tool">Deep Learning</span>
+          <span class="project-tool">LSTM</span>
+          <span class="project-tool">SMOTE</span>
+          <span class="project-tool">Data Analysis</span>
+        </div>
+        <div class="project-highlight">🏆 98.37% Accuracy Achieved</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div class="project-badge">ML · Climate</div>
+        <div class="project-title">Temperature Anomaly Detection for Climate Change Prediction</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Built a Random Forest Classifier for anomaly detection and Bidirectional LSTM for temperature forecasting. Evaluated using F1, RMSE, MAE with heatmaps and time-series charts.</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span>
+          <span class="project-tool">Random Forest</span>
+          <span class="project-tool">Bi-LSTM</span>
+          <span class="project-tool">Data Visualization</span>
+        </div>
+        <div class="project-highlight">📈 Multi-model Comparative Analysis</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div class="project-badge">ML · Anomaly Detection</div>
+        <div class="project-title">Mobile-Centric Approach for Rainfall Anomaly Detection</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Compared SVR, Decision Tree, AdaBoost, Random Forest, Gradient Boosting, and a Hybrid RF+GB model with Bayesian optimization via Optuna on monsoon data (2001–2025).</p>
+        <div class="project-tools">
+          <span class="project-tool">Python</span>
+          <span class="project-tool">Optuna</span>
+          <span class="project-tool">Bayesian Optimization</span>
+          <span class="project-tool">Gradient Boosting</span>
+        </div>
+        <div class="project-highlight">🔬 5 ML Models Benchmarked</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-header">
+        <div class="project-badge">IoT · Smart Systems</div>
+        <div class="project-title">Water Level Monitoring System with AI</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Built an IoT system using NodeMCU ESP8266 and ultrasonic sensor with real-time Blynk app integration. Automated pump control reducing water wastage via Wi-Fi smart management.</p>
+        <div class="project-tools">
+          <span class="project-tool">IoT</span>
+          <span class="project-tool">NodeMCU ESP8266</span>
+          <span class="project-tool">Arduino IDE</span>
+          <span class="project-tool">Cloud</span>
+        </div>
+        <div class="project-highlight">💧 Fully Automated Smart System</div>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="grid-column: span 2;">
+      <div class="project-header">
+        <div class="project-badge">Android · Accessibility</div>
+        <div class="project-title">Disable Friendly Wheelchair Assistance with Emergency Alert System</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Developed an Android app enabling directional wheelchair control and real-time emergency alerts to police or neighbors. Promotes safety, mobility, and independence for users with disabilities through intuitive UI and hardware integration.</p>
+        <div class="project-tools">
+          <span class="project-tool">Android Development</span>
+          <span class="project-tool">Web Applications</span>
+          <span class="project-tool">Hardware Integration</span>
+          <span class="project-tool">UI/UX</span>
+        </div>
+        <div class="project-highlight">♿ Real-time Emergency Alert System</div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  <div style="padding-bottom:90px;"></div>
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div id="certifications" style="background:var(--offwhite);">
+<div class="certs-inner">
+  <div style="padding-top:90px;">
+  <div class="section-label reveal">Credentials</div>
+  <h2 class="section-title reveal">Certifications</h2>
+  <div class="section-line reveal"></div>
+  <div class="certs-grid">
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#EEF2FF;">🎓</div>
+      <div class="cert-issuer">NPTEL · IIT Madras / SWAYAM</div>
+      <div class="cert-name">Privacy and Security in Online Social Media</div>
+      <div class="cert-date">Jul–Oct 2025 · Score: 55%</div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#FFF7ED;">🏢</div>
+      <div class="cert-issuer">Tata Group · Forage</div>
+      <div class="cert-name">Data Visualisation: Empowering Business with Effective Insights</div>
+      <div class="cert-date">May 2025</div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#F0FDF4;">🔐</div>
+      <div class="cert-issuer">Deloitte · Forage</div>
+      <div class="cert-name">Cyber Job Simulation</div>
+      <div class="cert-date">May 2025</div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#EFF6FF;">💻</div>
+      <div class="cert-issuer">Deloitte · Forage</div>
+      <div class="cert-name">Technology Job Simulation</div>
+      <div class="cert-date">May 2025</div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#FDF4FF;">⚙️</div>
+      <div class="cert-issuer">Accenture · Forage</div>
+      <div class="cert-name">Software Engineering Job Simulation</div>
+      <div class="cert-date">Jun 2025</div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#FFFBEB;">📊</div>
+      <div class="cert-issuer">OfficeMaster</div>
+      <div class="cert-name">Power BI Workshop – AI-Powered Interactive Dashboards</div>
+      <div class="cert-date">May 2025</div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#F0FDF4;">📋</div>
+      <div class="cert-issuer">OneRoadmap</div>
+      <div class="cert-name">Excel Skill Certification</div>
+      <div class="cert-date">May 2025</div>
+    </div>
+
+    <div class="cert-card reveal">
+      <div class="cert-logo" style="background:#FEF2F2;">🤖</div>
+      <div class="cert-issuer">Uptor / LMES</div>
+      <div class="cert-name">Generative AI Workshop</div>
+      <div class="cert-date">Sep 2025</div>
+    </div>
+
+    <div class="cert-card reveal" style="border-color: var(--blue); background: #EFF6FF;">
+      <div class="cert-logo" style="background:#DBEAFE;">🏆</div>
+      <div class="cert-issuer" style="color:#1D4ED8;">Bharathiar University · ICAC-2026</div>
+      <div class="cert-name">Paper Published & Presented – International Conference on Advanced Computing</div>
+      <div class="cert-date">January 2026</div>
+    </div>
+
+  </div>
+  </div>
+  <div style="padding-bottom:90px;"></div>
+</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Jyotsna B</div>
+  <p style="color:rgba(255,255,255,0.5); font-size:0.9rem; margin-bottom:10px;">MSc AI Graduate · Bharathiar University · Coimbatore</p>
+  <div class="footer-links">
+    <a href="mailto:jyotsnab5757@gmail.com">✉️ jyotsnab5757@gmail.com</a>
+    <a href="tel:8825719516">📞 8825719516</a>
+    <a href="https://www.linkedin.com/in/jyotsna-b-586498373/" target="_blank">🔗 LinkedIn</a>
+    <a href="https://github.com/JYOYSNA07B" target="_blank">💻 GitHub</a>
+  </div>
+  <div class="footer-copy">© 2026 Jyotsna B. All rights reserved.</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('revealed'), i * 60);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Nav active highlight
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
